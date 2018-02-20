@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "devstart": "node node_modules/nodemon/bin/nodemon server.js",
     "start": "babel-node server.js",
-    "build": "./node_modules/babel-cli/bin/babel.js src -d dist"
+    "build": "./node_modules/webpack/bin/webpack.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
     "axios": "^0.17.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "body-parser": "^1.18.2",
@@ -33,7 +34,9 @@
     "mongoose": "^5.0.6",
     "nodemon": "^1.15.1",
     "path": "^0.12.7",
+    "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "webpack": "^3.11.0"
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.1"
   }
 }
