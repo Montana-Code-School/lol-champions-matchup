@@ -956,9 +956,10 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var buttonStyle = {
-  size: '30px 30px 30px 30px'
-};
+var query = 1;
+var before = "https://na1.api.riotgames.com/lol/static-data/v3/champions/";
+var after = "?locale=en_US&champData=image&api_key=RGAPI-3ff47e8c-88b0-4f8d-a108-280272dd665d";
+var request = before + query + after;
 
 var SearchButton = function (_React$Component) {
   _inherits(SearchButton, _React$Component);
@@ -975,13 +976,20 @@ var SearchButton = function (_React$Component) {
   _createClass(SearchButton, [{
     key: 'buttonClicked',
     value: function buttonClicked() {
-      console.log('button worked');
+      console.log("Don't touch me asshole.");
+      fetch(request, {
+        mode: 'no-cors'
+      }).then(function (data) {
+        console.log(data.image);
+        //   return results.json();
+        // }).then(data => {
+        //   let qResults = data.results.map(())
+      });
     }
   }, {
     key: 'render',
     value: function render() {
-
-      console.log("Don't touch me asshole.");
+      console.log("It Works!!");
       return _react2.default.createElement(
         'div',
         null,
