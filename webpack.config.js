@@ -1,0 +1,18 @@
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: './dist/bundle.js'
+  },
+  module: {
+    loaders: [
+      {
+        test: /.jsx?$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        query: {
+          presets: ['env', 'react']
+        }
+      }
+    ]
+  },
+};
