@@ -29,6 +29,7 @@ class SearchButton extends React.Component {
 
   componentWillMount() {
     axios.get(request).then((data) =>{
+      console.log(data);
       this.setState({
         allChamps: data.data.data
       });

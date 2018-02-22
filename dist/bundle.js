@@ -1679,6 +1679,7 @@ var SearchButton = function (_React$Component) {
       var _this2 = this;
 
       _axios2.default.get(request).then(function (data) {
+        console.log(data);
         _this2.setState({
           allChamps: data.data.data
         });
