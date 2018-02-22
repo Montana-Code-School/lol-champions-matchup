@@ -48,7 +48,7 @@ class SearchButton extends React.Component {
         <form ></form>
         <button className="inputs" onClick={this.buttonClicked.bind(this)}>Find Champion</button>
         <p onClick = {()=>console.log("you did the thing")}>{this.state.yourChamp.name}</p>
-        <img src={_.has(this.state.yourChamp, 'image.sprite') ? `http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/${this.state.yourChamp.image.full}` : "./download.jpeg"}/>
+        <img src={_.has(this.state.yourChamp, 'image.sprite') ? `http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/${this.state.yourChamp.image.full}` : "http://i.imgur.com/xNLs83T.png"}/>
       </div>
     );
   }
