@@ -1,55 +1,57 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
-import championsList from './lol-champions.json';
+import axios from 'axios';
+var _ = require('lodash');
 
-// const lolClient = lol.client({
+const ourUrl = "http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion.json?api_key=RGAPI-082dbc68-3edb-4ac3-9d02-59efc93d1d66";
+
 //   apiKey: '082dbc68-3edb-4ac3-9d02-59efc93d1d66',
-//   cache: null
-// });
+//   photo address: http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Urgot.png
+let champArr = [];
+let champNames;
 
 class SearchButton extends React.Component {
   constructor(props){
     super(props);
-    championsList.state = {name: "" };
+    this.state = {
+      yourChamp: {},
+
+    };
   }
 
   buttonClicked() {
-    fetch("http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion.json")
-      .then((data) => {
-        console.log(data.body.getReader().read().then(thing=>console.log(thing)));
-      });
-    // let name = document.getElementById('dropitdown').value;
-    // for(let i = 0; i < championsList.length; i++) {
-    //   if (championsList[i].name == name) {
-    //     query = championsList[i].id;
-    //     request = before + query + after;
-    //     console.log(championsList[i].name);
-    //     break;
-    //   }
-    // }
+    let ranNum = Math.floor(Math.random() * (champArr.length-1));
+    let yourChamp = champArr[ranNum];
+    this.setState({
+      yourChamp: yourChamp
+    });
+    console.log(champArr[ranNum]);
+  }
 
+  componentWillMount() {
+    axios.get(ourUrl).then((data) => {
+      champNames = data.data.data;
+      let x = 0;
+      Object.keys(champNames).map(function(key, index) {
+        champArr.push(champNames[key]);
+      });
+      //console.log(champArr);
+      // console.log(champArr[1].name);
+      console.log(champNames.Urgot);
+    });
   }
 
   render() {
     console.log("It Works!!");
     return (
       <div>
-        <select id="dropitdown">
-          <option value="Ashe">Ashe</option>
-          <option value="Caitlyn">Caitlyn</option>
-          <option value="Ezreal">Ezreal</option>
-          <option value="Kog'Maw">Kog'Maw</option>
-          <option value="Missfortune">Miss Fortune</option>
-          <option value="Sivir">Sivir</option>
-          <option value="Tristana">Tristana</option>
-          <option value="Twitch">Twitch</option>
-          <option value="Vayne">Vayne</option>
-        </select>
-        <button className="inputs" onClick={this.buttonClicked}>Search Champions</button>
+        <form ></form>
+        <button className="inputs" onClick={this.buttonClicked.bind(this)}>Find Champion</button>
+        <p onClick = {()=>console.log("you did the thing")}>{this.state.yourChamp.name}</p>
+        <img src={_.has(this.state.yourChamp, 'image.sprite') ? `http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/${this.state.yourChamp.image.full}` : "./download.jpeg"}/>
       </div>
     );
   }
 }
 
-render(<SearchButton/>, document.getElementById('ChampBox')
-);
+render(<SearchButton/>, document.getElementById('ChampBox'));
