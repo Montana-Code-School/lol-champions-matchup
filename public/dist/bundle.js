@@ -1707,7 +1707,7 @@ var SearchButton = function (_React$Component) {
             } },
           this.state.yourChamp.name
         ),
-        _react2.default.createElement('img', { src: _.has(this.state.yourChamp, 'image.sprite') ? 'http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/' + this.state.yourChamp.image.full : "./download.jpeg" })
+        _react2.default.createElement('img', { src: _.has(this.state.yourChamp, 'image.sprite') ? 'http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/' + this.state.yourChamp.image.full : "http://i.imgur.com/xNLs83T.png" })
       );
     }
   }]);
