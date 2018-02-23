@@ -1639,12 +1639,10 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var _ = __webpack_require__(54);
+var _ = __webpack_require__(53);
 
-var ourUrl = "http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion.json?api_key=RGAPI-082dbc68-3edb-4ac3-9d02-59efc93d1d66";
+var ourUrl = "http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion.json?api_key=RGAPI-";
 
-//   apiKey: '082dbc68-3edb-4ac3-9d02-59efc93d1d66',
-//   photo address: http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Urgot.png
 var champArr = [];
 var champNames = void 0;
 
@@ -1671,7 +1669,6 @@ var SearchButton = function (_React$Component) {
       this.setState({
         yourChamp: yourChamp
       });
-      console.log(champArr[ranNum]);
     }
   }, {
     key: 'componentWillMount',
@@ -1682,15 +1679,11 @@ var SearchButton = function (_React$Component) {
         Object.keys(champNames).map(function (key, index) {
           champArr.push(champNames[key]);
         });
-        //console.log(champArr);
-        // console.log(champArr[1].name);
-        console.log(champNames.Urgot);
       });
     }
   }, {
     key: 'render',
     value: function render() {
-      console.log("It Works!!");
       return _react2.default.createElement(
         'div',
         null,
@@ -1702,9 +1695,7 @@ var SearchButton = function (_React$Component) {
         ),
         _react2.default.createElement(
           'p',
-          { onClick: function onClick() {
-              return console.log("you did the thing");
-            } },
+          null,
           this.state.yourChamp.name
         ),
         _react2.default.createElement('img', { src: _.has(this.state.yourChamp, 'image.sprite') ? 'http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/' + this.state.yourChamp.image.full : "http://i.imgur.com/xNLs83T.png" })
@@ -19916,8 +19907,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 53 */,
-/* 54 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -37019,10 +37009,10 @@ module.exports = function spread(callback) {
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55), __webpack_require__(56)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(54), __webpack_require__(55)(module)))
 
 /***/ }),
-/* 55 */
+/* 54 */
 /***/ (function(module, exports) {
 
 var g;
@@ -37049,7 +37039,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 56 */
+/* 55 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
